@@ -1,13 +1,12 @@
-import { ProjectProps } from "./projectDetails";
-import Link from "next/link";
-import Image from "next/image";
-import AnimatedTitle from "../../animations/AnimatedTitle";
-import AnimatedBody from "../../animations/AnimatedBody";
+import { ProjectProps } from "./projectDetails.ts";
+import Link from "next/link.js";
+import Image from "next/image.js";
+import AnimatedTitle from "../../animations/AnimatedTitle.tsx";
+import AnimatedBody from "../../animations/AnimatedBody.tsx";
 import { motion } from "framer-motion";
-import Container from "../container/Container";
+import Container from "../container/Container.tsx";
 import React from "react";
-import {SiGithub} from "react-icons/si";
-import {BsLink45Deg} from "react-icons/bs";
+import { SiGithub } from "react-icons/si";
 const ProjectCard = ({
     id,
     name,
@@ -16,13 +15,12 @@ const ProjectCard = ({
     techNames,
     techLinks,
     github,
-    demo,
     image,
     available,
 }: ProjectProps) => {
     return (
         <motion.div
-            className={`relative bg-cover bg-no-repeat bg-center z-10 h-[550px] w-full items-stretch justify-center py-0 sm:h-[700px] sm:w-[100%] md:h-[650px] md:w-[100%] lg:h-[500px]`}
+            className={`relative z-10 h-[550px] w-full items-stretch justify-center bg-cover bg-center bg-no-repeat py-0 sm:h-[700px] sm:w-[100%] md:h-[650px] md:w-[100%] lg:h-[500px]`}
             initial="initial"
             animate="animate"
         >
@@ -58,25 +56,14 @@ const ProjectCard = ({
                                 href={github}
                                 target="_blank"
                                 aria-label="Open GitHub Repository"
-                                className="rounded-full w-[20px] bg-white p-5 text-[20px] md:w-[25px] md:text-[24px] lg:w-[65px] lg:text-[28px]"
+                                className="w-[43px] rounded-full bg-white p-3 text-[20px] md:w-[65px] md:p-5 md:text-[24px] lg:w-[65px] lg:text-[28px]"
                                 data-blobity
                                 data-blobity-radius="35"
                                 data-blobity-offset-x="4"
                                 data-blobity-offset-y="4"
-                                data-blobity-magnetic="false">
-                                <SiGithub/>
-                            </Link>
-                            <Link
-                                href={demo}
-                                target="_blank"
-                                aria-label="Open Live Demo"
-                                className=" w-[20px] rounded-full bg-white p-5 text-[20px] md:w-[25px] md:text-[24px] lg:w-[65px] lg:text-[28px]"
-                                data-blobity
-                                data-blobity-radius="35"
-                                data-blobity-offset-x="4"
-                                data-blobity-offset-y="4"
-                                data-blobity-magnetic="false">
-                                <BsLink45Deg/>
+                                data-blobity-magnetic="false"
+                            >
+                                <SiGithub />
                             </Link>
                         </>
                     ) : (
@@ -104,7 +91,7 @@ const ProjectCard = ({
                             "mt-4 w-[90%] max-w-[457px] text-[16px] font-semibold text-[#95979D] "
                         }
                     />
-                    <div className="mt-9 mb-9 grid grid-cols-5 gap-5">
+                    <div className="col-start-1 col-end-2 mt-9 mb-9 grid grid-cols-5 gap-5">
                         {technologies.map((IconComponent, id) => (
                             <div key={id} className={"relative"}>
                                 <Link
@@ -116,7 +103,7 @@ const ProjectCard = ({
                                     data-blobity-tooltip={techNames[id]}
                                     data-blobity-magnetic="false"
                                 >
-                                    <IconComponent/>
+                                    <IconComponent />
                                 </Link>
                             </div>
                         ))}

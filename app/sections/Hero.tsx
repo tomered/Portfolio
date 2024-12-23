@@ -1,8 +1,8 @@
-import { spaceGrotesk } from "../fonts/spaceGrotesk";
+import { spaceGrotesk } from "../fonts/spaceGrotesk.ts";
 import { motion } from "framer-motion";
-import Logo from "../components/svg/Logo";
-import HeroBackground from "../components/background/HeroBackground";
+import HeroBackground from "../components/background/HeroBackground.tsx";
 import React from "react";
+import AnimatedTitle from "../animations/AnimatedTitle.tsx";
 
 const Hero = () => {
     return (
@@ -17,7 +17,14 @@ const Hero = () => {
                 <div
                     className={`relative flex flex-col items-center justify-center ${spaceGrotesk.className} pointer-events-none`}
                 >
-                    <Logo width={100} height={100} />
+                    <AnimatedTitle
+                        text={"Hi I'm Tomer Edelsberg."}
+                        className={
+                            "mb-1 text-left text-[40px] font-bold leading-[0.9em] tracking-tighter text-[#e4ded7] sm:text-[45px] md:mb-16 md:text-[60px] lg:text-[80px]"
+                        }
+                        wordSpace={"mr-[10px]"}
+                        charSpace={"mr-[0.001em]"}
+                    />
                 </div>
             </div>
         </motion.section>

@@ -70,36 +70,84 @@ const PreLoader: React.FC = () => {
     }, []); // Empty dependency array to run the animation only on mount
 
     return (
-        <div
-            className="preloader gap-[5px] overflow-hidden text-[14px] sm:gap-[10px] sm:text-[16px] md:text-[18px] lg:text-[20px]"
-            style={{
-                height: "100vh",
-                width: "100%",
-                background: "#000000",
-                color: "#e5ebf2",
-                position: "fixed",
-                bottom: 0,
-                left: 0,
-                right: 0,
-                zIndex: 55,
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                overflow: "hidden !important",
-            }}
-        >
+        <>
+            <style>
+                {`
+                @keyframes gradient-sequence-fast {
+                    0% {
+                        background-position: 100% 0;
+                        color:  #9f75eb; /* Start with purple */
+                    }
+                    100% {
+                        background-position: 0 0;
+                        color: white; /* Quickly transition to white */
+                    }
+                }
+
+                @keyframes gradient-sequence-slow {
+                    0% {
+                        background-position: 100% 0;
+                        color: white; /* Start with white */
+                    }
+                    100% {
+                        background-position: 0 0;
+                        color: #9f75eb; /* Transition slowly to purple */
+                    }
+                }
+
+                .gradient-web-dev, .gradient-slash {
+                    background: linear-gradient(to right,  #9f75eb, white);
+                    background-clip: text;
+                    -webkit-background-clip: text;
+                    color: transparent;
+                    animation: gradient-sequence-fast 5s forwards; /* Fast transition for the first part */
+                }
+
+                .gradient-open-to-work {
+                    // background: linear-gradient(to right, white, #9f75eb);
+                    background: white;
+                    background-clip: text;
+                    -webkit-background-clip: text;
+                    color: transparent;
+                    animation: gradient-sequence-slow 3s forwards; /* Slow transition for Open to Work */
+                    animation-delay: 3s; /* Starts after the first part */
+                }
+                `}
+            </style>
+
             <div
-                className="texts-container w-500 flex h-60 items-center justify-center gap-[5px] overflow-hidden text-[14px] font-bold text-[#e4ded7] opacity-0 sm:gap-[10px] sm:text-[16px] md:text-[18px] lg:text-[20px]"
+                className="preloader gap-[5px] overflow-hidden text-[14px] sm:gap-[10px] sm:text-[16px] md:text-[18px] lg:text-[20px]"
                 style={{
-                    height: "60px",
+                    height: "100vh",
+                    width: "100%",
+                    background: "#000000",
+                    color: "#e5ebf2",
+                    position: "fixed",
+                    bottom: 0,
+                    left: 0,
+                    right: 0,
+                    zIndex: 55,
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    overflow: "hidden !important",
                 }}
             >
-                <span>Developer</span>
-                <span> / </span>
-                <span>Designer</span>
-                <div className="sub hidden"></div>
+                <div
+                    className="texts-container w-500 flex h-60 items-center justify-center gap-[5px] overflow-hidden text-[14px] font-bold text-[#e4ded7] opacity-0 sm:gap-[10px] sm:text-[16px] md:text-[18px] lg:text-[20px]"
+                    style={{
+                        height: "60px",
+                    }}
+                >
+                    <span className="gradient-web-dev">Web Developer</span>
+                    <span className="gradient-slash"> / </span>
+                    <span className="gradient-open-to-work flex items-center justify-center gap-3">
+            Open to Work
+                    </span>
+                    <div className="sub hidden"></div>
+                </div>
             </div>
-        </div>
+        </>
     );
 };
 

@@ -1,15 +1,21 @@
 import {
     SiCplusplus,
     SiFramer,
-    SiGithub, SiNeovim,
-    SiNextdotjs,
+    SiGithub,
+    SiNeovim,
+    SiNodedotjs,
     SiReact,
     SiRust,
     SiTailwindcss,
     SiTypescript,
-    SiZig
+    SiWebgl,
+    SiMui,
+    SiZig,
+    SiMongodb,
+    SiPostgresql,
 } from "react-icons/si";
-import {IconType} from "react-icons";
+import { IoLogoJavascript } from "react-icons/io5";
+import { IconType } from "react-icons";
 
 export type ProjectProps = {
   id: number;
@@ -19,7 +25,6 @@ export type ProjectProps = {
   techNames: string[];
   techLinks: string[];
   github: string;
-  demo: string;
   image: string;
   available: boolean;
 };
@@ -27,41 +32,38 @@ export type ProjectProps = {
 export const projects = [
     {
         id: 0,
-        name: "Portfolio 2023",
+        name: "Pathfinding visualizer",
         description:
-            "This is the fifth iteration of my portfolio.",
-        technologies: [SiTypescript, SiReact, SiNextdotjs, SiTailwindcss, SiFramer],
-        techNames: ["TypeScript", "React", "Next.js", "Tailwind CSS", "Framer Motion"],
-        techLinks: ["https://www.typescriptlang.org/", "https://reactjs.org/", "https://nextjs.org/", "https://tailwindcss.com/", "https://www.framer.com/motion/"],
-        github: "https://github.com/nuIIpointerexception/www.seekvisualartist.com",
-        demo: "https://www.seekvisualartist.com/",
-        image: "/projects/portfolio.webp",
+      "Interactive pathfinding visualizer built with React, MUI, RTK, and Node.js. Explore and compare search algorithms with real-time visualizations and performance analysis.",
+        technologies: [SiTypescript, SiReact, SiNodedotjs, SiMui, SiMongodb],
+        techNames: ["TypeScript", "React", "Node.js", "material-ui", "MongoDB"],
+        techLinks: [
+            "https://www.typescriptlang.org/",
+            "https://reactjs.org/",
+            "https://nodejs.org/",
+            "https://mui.com/material-ui/",
+            "https://www.mongodb.com/",
+        ],
+        github: "https://github.com/tomered/PathFinding-Frontend",
+        image: "/projects/Pathfinding.gif",
         available: true,
     },
     {
         id: 1,
-        name: "Code Wars Solutions",
+        name: "Smart campus",
         description:
-            "Just a couple of solutions for www.codewars.com problems. I'm currently ranked 7 kyu.",
-        technologies: [SiCplusplus, SiRust, SiNeovim],
-        techNames: ["C++", "Rust", "Neovim"],
-        techLinks: ["https://cplusplus.com/", "https://www.rust-lang.org/", "https://neovim.io/"],
-        github: "https://github.com/nuIIpointerexception/codewars",
-        demo: "https://www.codewars.com/",
-        image: "/projects/codewars.webp",
+      "Smart campus system for monitoring and controlling campus facilities with real-time data integration, robust authentication, and scalable architecture. Developed with HIT and industry professionals.",
+        technologies: [SiTypescript, SiReact, SiNodedotjs, SiMui, SiPostgresql],
+        techNames: ["Typescript", "React", "Node.js", "material-ui", "PostgreSQL"],
+        techLinks: [
+            "https://www.typescriptlang.org/",
+            "https://reactjs.org/",
+            "https://nodejs.org/",
+            "https://mui.com/material-ui/",
+            "https://www.postgresql.org/",
+        ],
+        github: "https://github.com/tomered/smart-campus-frontend",
+        image: "/projects/Smartcampus.gif",
         available: true,
-    },
-    {
-        id: 2,
-        name: "Coming Soon",
-        description:
-            "I'm currently working on a couple of projects. I'll update this section as soon as I'm done.",
-        technologies: [SiZig],
-        techNames: ["Zig"],
-        techLinks: ["https://www.ziglang.org/"],
-        github: "https://github.com/nuIIpointerexception/",
-        demo: "https://github.com/nuIIpointerexception/",
-        image: "/projects/construction.webp",
-        available: false,
     },
 ];
